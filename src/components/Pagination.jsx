@@ -43,7 +43,8 @@ const Pagination = ({ currentPage, totalPages, changePage }) => {
             <li className={`page-item${item.itemClass}`}>
               <a
                 className='page-link'
-                onClick={() => changePage(item.number)}
+                href='#page'
+                onClick={e => changePage(e, item.number)}
                 tabIndex='-1'
                 aria-disabled={item.isDisabled}
               >

@@ -37,7 +37,7 @@ class App extends Component {
 
   getMovies = () => {
     fetch(
-      `${API_URL}/discover/movie?api_key=${API_KEY_3}&page=${this.state.currentPage}`
+      `${API_URL}/discover/movie?api_key=${API_KEY_3}&page=${this.state.currentPage}&sort_by=popularity.desc`
     )
       .then(response => {
         return response.json();
@@ -69,7 +69,8 @@ class App extends Component {
     });
   };
 
-  changePage = page => {
+  changePage = (e, page) => {
+    e.preventDefault();
     this.setState({ currentPage: page }, this.getMovies);
   };
 
